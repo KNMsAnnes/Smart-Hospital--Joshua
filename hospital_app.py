@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import pickle
 
-with open ("hospital_model.pkl", "rb") as f:
+with open("hospital_model.pkl", "rb") as f:
   bundle = pickle.load(f)
   st.write("Connected")
 
@@ -13,11 +13,14 @@ features = bundle["features"]
 cols_to_scale = bundle["cols_to_scale"]
 
 dept_map_inv = bundle["dept_map_inv"]
+
 gender_map = bundle["gender_map"]
 temp_map = bundle["temp_map"]
 hr_map = bundle["hr_map"]
 dur_map = bundle["dur_map"]
 cc_map = bundle["cc_map"]
+
+
 
 DEPT_INFO = {
     "Respiratory Medicine": {
@@ -75,11 +78,11 @@ DEPT_INFO = {
     }
 }
 
-st.title("Smart Hospital Navigator🏥")
+st.title("🏥 Smart Hospital Navigator")
 st.write("Fill in the patient's information below")
 
 st.header("Patient Information")
-age = st.number_input("Age", min_value=1, max_value=120, value=30)
+age = st.number_input("Age" , min_value=1, max_value=120, value=30)
 gender = st.selectbox("Gender", ["Female", "Male"])
 
 st.header("Symptoms")
@@ -91,13 +94,14 @@ with col1:
   cough = st.checkbox("Cough")
   headache = st.checkbox("Headache")
   chest_pain = st.checkbox("Chest Pain")
-  stomach_pain = st.checkbox("Stomach Pain")
-  
+  stomach_pain = st.checkbox("Stomach pain")
+
 with col2:
-  shortness_breath = st.checkbox("Shortness of Breath")
-  nausea_vomiting = st.checkbox("Nausea or Vomiting")
-  dizzines = st.checkbox("Dizziness")
+  shortness_breath = st.checkbox("Shortness Of Breath")
+  nausea_vomiting = st.checkbox("Nause / Vomiting")
+  dizziness = st.checkbox("dizziness")
   skin_rash = st.checkbox("Skin Rash")
+
 
 st.header("Patient Condition")
 
@@ -227,7 +231,13 @@ if predict_button:
     st.warning(
         "This AI recommendation is only for educational purposes and is not a medical diagnosis."
     )
-  
+
+
+
+
+
+
+
 
 
 
