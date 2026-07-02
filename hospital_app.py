@@ -227,6 +227,8 @@ if predict_button:
     st.warning(
         "This AI recommendation is only for educational purposes and is not a medical diagnosis."
     )
+  
+
 
 
 
